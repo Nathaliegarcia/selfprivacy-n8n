@@ -75,7 +75,7 @@ in
         enable = true;
         settings = {
           host = "${cfg.subdomain}.${sp.domain}";
-          port = 5989;
+          port = 5678;
           listen_address = "127.0.0.1";
           generic = {
             timezone = sp.timezone;
@@ -142,7 +142,7 @@ in
       '';
       locations = {
         "/" = {
-          proxyPass = "http://127.0.0.1:5989";
+          proxyPass = "http://127.0.0.1:5678";
         };
       };
     };
