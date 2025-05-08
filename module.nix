@@ -73,6 +73,17 @@ in
     services = {
       n8n = {
         enable = true;
+        # Ajouter apres donc a verifier
+        package = pkgs.n8n.overrideAttrs (old: {
+          version = "1.91.3";
+          src = pkgs.fetchFromGitHub {
+            owner = "n8n-io";
+            repo = "n8n";
+            rev = "v1.91.3";
+            sha256 = "26f30708bca88a513ef34baeb4ee063071d9981b";
+          };
+        });
+        # Jq la
         settings = {
           host = "${cfg.subdomain}.${sp.domain}";
           port = 5989;
