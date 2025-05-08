@@ -2,7 +2,7 @@
   description = "n8n module";
 
   outputs = { self }: {
-    nixosModules.default = import ./module.nix;
+    nixosModules.default = import ./module.nix  (args // { pkgs = import nixpkgs { system = args.config.system; }; });
     configPathsNeeded =
       builtins.fromJSON (builtins.readFile ./config-paths-needed.json);
     meta = { lib, ... }: {
