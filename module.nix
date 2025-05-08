@@ -37,17 +37,17 @@ in
       };
     };
     # TODO: Re-enable after SP migrates to 24.11
-    # enableTaskRunners = (lib.mkOption {
-    #   default = true;
-    #   type = lib.types.bool;
-    #   description = "Enable task runners";
-    # }) // {
-    #   meta = {
-    #     type = "bool";
-    #     weight = 1;
-    #   };
-    # };
-
+     enableTaskRunners = (lib.mkOption {
+       default = true;
+       type = lib.types.bool;
+       description = "Enable task runners";
+     }) // {
+       meta = {
+         type = "bool";
+         weight = 1;
+       };
+     };
+####################################
   };
 
   config = lib.mkIf cfg.enable {
