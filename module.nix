@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   # Just a shorthand for the config
   sp = config.selfprivacy;
