@@ -91,9 +91,10 @@ in
             };
           };
           # TODO: Re-enable after SP migrates to 24.11
-          # taskRunners = {
-          #   enabled = cfg.enableTaskRunners;
-          # };
+           taskRunners = {
+             enabled = cfg.enableTaskRunners;
+           };
+################################################
           versionNotifications = {
             enabled = false;
           };
