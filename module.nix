@@ -98,7 +98,6 @@ in
           versionNotifications = {
             enabled = false;
           };
-          env.N8N_PUSH_BACKEND = "websocket";
         };
       };
       postgresql = {
@@ -116,6 +115,11 @@ in
 
     systemd = {
       services.n8n = {
+ 
+        environment = {
+          N8N_PUSH_BACKEND = "websocket";   # ou "sse" si tu préfères
+        };
+
         unitConfig.RequiresMountsFor = lib.mkIf sp.useBinds "/volumes/${cfg.location}/n8n";
         serviceConfig = {
           Slice = "n8n.slice";
