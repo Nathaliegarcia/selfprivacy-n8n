@@ -5,7 +5,8 @@ This is an experimental attempt at packaging [n8n](https://github.com/n8n-io/n8n
 
 # Unstable version
 
-This was modified to work with unstable nixOs n8n version (1.91.0 at the time).
+This was modified to work with unstable nixOs n8n version (1.91.0 at the time). See version (here)[https://search.nixos.org/packages?channel=unstable&show=n8n&from=0&size=50&sort=relevance&type=packages&query=n8n]
+
 To do this :
  - Connect to selfPrivacy as root
  - Add this to /etc/nixos/deployment.nix
