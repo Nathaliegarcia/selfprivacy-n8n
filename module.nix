@@ -150,7 +150,7 @@ in
           proxyPass = "http://127.0.0.1:5678";
           proxyWebsockets = true;        # ← ajoute automatiquement Upgrade / Connection
           extraConfig = ''
-            proxy_http_version 1.1;      # garde HTTP/1.1 côté amont
+            # proxy_http_version 1.1;      # garde HTTP/1.1 côté amont
             proxy_read_timeout  60s;     # optionnel : évite les coupures longues
             proxy_send_timeout  60s;
           '';
