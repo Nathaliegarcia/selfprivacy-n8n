@@ -80,7 +80,7 @@ in
           generic = {
             timezone = sp.timezone;
             # TODO: Re-enable after SP migrates to 24.11
-            # releaseChannel = "stable";
+            releaseChannel = "stable";
           };
           database = {
             type = "postgresdb";
@@ -98,6 +98,7 @@ in
           versionNotifications = {
             enabled = false;
           };
+          env.N8N_PUSH_BACKEND = "websocket";
         };
       };
       postgresql = {
@@ -143,6 +144,12 @@ in
       locations = {
         "/" = {
           proxyPass = "http://127.0.0.1:5678";
+          proxyWebsockets = true;        # ← ajoute automatiquement Upgrade / Connection
+          extraConfig = ''
+            proxy_http_version 1.1;      # garde HTTP/1.1 côté amont
+            proxy_read_timeout  60s;     # optionnel : évite les coupures longues
+            proxy_send_timeout  60s;
+          '';
         };
       };
     };
