@@ -38,6 +38,7 @@ To do this :
  - then rebuild the flake
 ``` sh
 cd /etc/nixos
+export NIX_BUILD_CORES=2
 nix flake update --override-input selfprivacy-nixos-config git+https://git.selfprivacy.org/SelfPrivacy/selfprivacy-nixos-config.git?ref=flakes
 nixos-rebuild switch --flake .#default
 ```
