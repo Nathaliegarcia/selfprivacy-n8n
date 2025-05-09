@@ -9,7 +9,7 @@ This was modified to work with unstable nixOs n8n version (1.91.0 at the time).
 To do this :
  - Connect to selfPrivacy as root
  - Add this to /etc/nixos/deployment.nix
-``` json
+``` nix
 { lib, pkgs, ... }: {
   # The content below is static and belongs to this deployment only!
   # Do not copy this configuration file to another NixOS installation!
