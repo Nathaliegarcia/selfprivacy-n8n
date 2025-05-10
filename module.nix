@@ -118,6 +118,7 @@ in
  
         environment = {
           N8N_PUSH_BACKEND = "websocket";   # ou "sse" si tu préfères
+          WEBHOOK_URL="${cfg.subdomain}.${sp.domain}";
         };
 
         unitConfig.RequiresMountsFor = lib.mkIf sp.useBinds "/volumes/${cfg.location}/n8n";
