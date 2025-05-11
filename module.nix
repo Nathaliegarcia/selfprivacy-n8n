@@ -73,6 +73,7 @@ in
     services = {
       n8n = {
         enable = true;
+        webhookUrl = "${cfg.subdomain}.${sp.domain}";
         settings = {
           host = "${cfg.subdomain}.${sp.domain}";
           port = 5678;
@@ -118,7 +119,7 @@ in
  
         environment = {
           N8N_PUSH_BACKEND = "websocket";   # ou "sse" si tu préfères
-          WEBHOOK_URL="${cfg.subdomain}.${sp.domain}";
+          # WEBHOOK_URL= lib.mkForce"${cfg.subdomain}.${sp.domain}";
         };
 
         unitConfig.RequiresMountsFor = lib.mkIf sp.useBinds "/volumes/${cfg.location}/n8n";
