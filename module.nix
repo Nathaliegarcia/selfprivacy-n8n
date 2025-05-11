@@ -73,7 +73,7 @@ in
     services = {
       n8n = {
         enable = true;
-        webhookUrl = "${cfg.subdomain}.${sp.domain}";
+        webhookUrl = "https://${cfg.subdomain}.${sp.domain}";
         settings = {
           host = "${cfg.subdomain}.${sp.domain}";
           port = 5678;
