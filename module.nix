@@ -119,8 +119,8 @@ in
  
         environment = {
           N8N_PUSH_BACKEND = "websocket";   # or "sse" 
-          # WEBHOOK_URL= lib.mkForce "${cfg.subdomain}.${sp.domain}";
-          N8N_EDITOR_BASE_URL = lib.mkForce "${cfg.subdomain}.${sp.domain}";
+          # WEBHOOK_URL= lib.mkForce "https://${cfg.subdomain}.${sp.domain}";
+          N8N_EDITOR_BASE_URL = lib.mkForce "https://${cfg.subdomain}.${sp.domain}";
         };
 
         unitConfig.RequiresMountsFor = lib.mkIf sp.useBinds "/volumes/${cfg.location}/n8n";
