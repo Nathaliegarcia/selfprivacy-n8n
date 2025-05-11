@@ -73,7 +73,7 @@ in
     services = {
       n8n = {
         enable = true;
-        webhookUrl = "https://${cfg.subdomain}.${sp.domain}";
+        webhookUrl = "https://${cfg.subdomain}.${sp.domain}"; #This was added so that OAuth redirect to the server url
         settings = {
           host = "${cfg.subdomain}.${sp.domain}";
           port = 5678;
@@ -118,8 +118,9 @@ in
       services.n8n = {
  
         environment = {
-          N8N_PUSH_BACKEND = "websocket";   # ou "sse" si tu préfères
-          # WEBHOOK_URL= lib.mkForce"${cfg.subdomain}.${sp.domain}";
+          N8N_PUSH_BACKEND = "websocket";   # or "sse" 
+          # WEBHOOK_URL= lib.mkForce "${cfg.subdomain}.${sp.domain}";
+          N8N_EDITOR_BASE_URL = lib.mkForce "${cfg.subdomain}.${sp.domain}";
         };
 
         unitConfig.RequiresMountsFor = lib.mkIf sp.useBinds "/volumes/${cfg.location}/n8n";
@@ -150,11 +151,10 @@ in
       locations = {
         "/" = {
           proxyPass = "http://127.0.0.1:5678";
-          proxyWebsockets = true;        # ← ajoute automatiquement Upgrade / Connection
+          proxyWebsockets = true;        # Added for websocket support
           extraConfig = ''
-            # proxy_http_version 1.1;      # garde HTTP/1.1 côté amont
-            proxy_read_timeout  60s;     # optionnel : évite les coupures longues
-            proxy_send_timeout  60s;
+            proxy_read_timeout  60s;     # Added for websocket support
+            proxy_send_timeout  60s;     # Added for websocket support
           '';
         };
       };
