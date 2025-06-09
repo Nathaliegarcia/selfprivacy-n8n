@@ -122,7 +122,8 @@ in
           # WEBHOOK_URL= lib.mkForce "https://${cfg.subdomain}.${sp.domain}";
           N8N_EDITOR_BASE_URL = lib.mkForce "https://${cfg.subdomain}.${sp.domain}";
           N8N_HOST            = "${cfg.subdomain}.${sp.domain}";
-          N8N_PROTOCOL        = "https";   
+          N8N_PROTOCOL        = "https";
+          N8N_LOG_LEVEL       = "debug";
 
         };
 
